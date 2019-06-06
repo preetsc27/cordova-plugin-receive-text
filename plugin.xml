@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.preet.textreceive" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<name>textReceive</name>
+<js-module name="textReceive" src="www/textReceive.js">
+<clobbers target="cordova.plugins.textReceive" />
+</js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="textReceive"><param name="android-package" value="com.preet.textreceive.textReceive" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+        </config-file>
+        
+        <source-file src="src/android/textReceive.java" target-dir="src/com/preet/textreceive/textReceive" />
+        
+
+        <edit-config file="AndroidManifest.xml" target="application" mode="merge">
+            <application android:launchMode="singleTask" />
+        </edit-config>
+        <config-file target="AndroidManifest.xml" parent="application/activity" mode="merge">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </config-file>
+    </platform>
+</plugin>
