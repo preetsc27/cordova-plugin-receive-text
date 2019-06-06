@@ -32,3 +32,20 @@ npm i -g cordova
       }
     </script>
 ```
+
+## If you are using React.js then add it in App.jsx
+```
+componentDidMount(){
+  window.plugins.listenForTextIntents(
+      "",
+      success => {
+        console.log(success);
+        alert(success.toString());
+      },
+      error => {
+        alert(error);
+      }
+    );
+  }
+}
+```
