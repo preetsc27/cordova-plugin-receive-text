@@ -39,6 +39,7 @@ public class textReceive extends CordovaPlugin {
             String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
             String message = args.getString(0);
             if (sharedText != null) {
+                intent.removeExtra(Intent.EXTRA_TEXT);
                 this.cb.success(sharedText);
             } else {
                 this.cb.error("Text is null");
@@ -55,6 +56,7 @@ public class textReceive extends CordovaPlugin {
         String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
         if (sharedText != null) {
             if (this.cb != null) {
+                intent.removeExtra(Intent.EXTRA_TEXT);
                 this.cb.success(sharedText);
             } else {
                 this.cb.error("Textis null 2");
