@@ -14,10 +14,6 @@
         
         <source-file src="src/android/textReceive.java" target-dir="src/com/preet/textreceive/textReceive" />
         
-
-        <edit-config file="AndroidManifest.xml" target="application" mode="merge">
-            <application android:launchMode="singleTask" />
-        </edit-config>
         <config-file target="AndroidManifest.xml" parent="application/activity" mode="merge">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
